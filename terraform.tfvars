@@ -10,6 +10,7 @@ create_cluster        = true
 cluster_name          = {
   cluster_1 = "dev"
   cluster_2 = "test"
+  cluster_3 = "prod"
 }
 db_engine             = "aurora-postgresql"
 db_version            = "13.3"
@@ -18,6 +19,7 @@ apply_immediately     = true
 db_instance_class     = {
   dev = "db.t4g.medium"
   test = "db.t3g.medium"
+  prod = "db.t8g.medium"
 }
 db_instance_count     = 1
 enable_http_endpoint  = true
