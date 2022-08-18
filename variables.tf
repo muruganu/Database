@@ -15,12 +15,15 @@ variable "public_cidr" {
 #Aurora DB vars
 
 variable "create_cluster" {}
-variable "cluster_count" {}
-variable "cluster_name" {}
+variable "cluster_name" {
+  type = map
+}
 variable "db_engine" {}
 variable "db_version" {}
 variable "db_name" {}
 variable "apply_immediately" {}
-variable "db_instance_class" {}
+variable "db_instance_class" {
+  type = map
+}
 variable "db_instance_count" {}
 variable "enable_http_endpoint" {}

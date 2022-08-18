@@ -32,7 +32,7 @@ resource "aws_rds_cluster" "aurora-cluster" {
 resource "aws_rds_cluster_instance" "aurora-cluster-instance" {
   count                   = var.db_instance_count
   cluster_identifier      = aws_rds_cluster.aurora-cluster.id
-  identifier              = "aurora-cluster-instance"
+  identifier              = "aurora-cluster-instance-${count.index}"
   instance_class          = var.db_instance_class
   engine                  = aws_rds_cluster.aurora-cluster.engine
   engine_version          = aws_rds_cluster.aurora-cluster.engine_version
@@ -42,6 +42,6 @@ resource "aws_rds_cluster_instance" "aurora-cluster-instance" {
   aws_rds_cluster.aurora-cluster
   ]
   tags = {
-    Name = "RDS Instance"
+    Name = "RDS Instance - ${count.index}"
   }
 }

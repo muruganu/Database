@@ -34,18 +34,19 @@ data "aws_subnets" "public" {
 }
 
 module "aurora" {
-  depends_on = [module.vpc,module.sg]
+
+  for_each = var.cluster_name
   source = "./module/aurora"
-  create_cluster        = var.create_cluster
-  cluster_count         = var.cluster_count
-  cluster_name          = var.cluster_name
+  cluster_name          = each.value
   db_engine             = var.db_engine
   db_version            = var.db_version
   db_subnet             = data.aws_subnets.private.ids
   db_name               = var.db_name
   db_sg                 = module.sg.db_sg
   apply_immediately     = var.apply_immediately
-  db_instance_class     = var.db_instance_class
+  db_instance_class     = var.db_instance_class[each.value]
   db_instance_count     = var.db_instance_count
   enable_http_endpoint  = var.enable_http_endpoint
+
+  depends_on = [module.vpc,module.sg]
 }

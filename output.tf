@@ -16,10 +16,11 @@ output "public1_subnet" {
 
 
 output "db_username" {
-  value = module.aurora.db_username
+  value = values(module.aurora).*.db_username
   sensitive = true
 }
 
 output "db_endpoint" {
-  value = module.aurora.db_endpoint
+  value = values(module.aurora).*.db_endpoint
+  sensitive = true
 }

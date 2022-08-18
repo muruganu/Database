@@ -7,13 +7,18 @@ public_cidr = ["10.0.3.0/24","10.0.4.0/24"]
 
 
 create_cluster        = true
-cluster_count         = 1
-cluster_name          = "aurora-cluster"
+cluster_name          = {
+  cluster_1 = "dev"
+  cluster_2 = "test"
+}
 db_engine             = "aurora-postgresql"
 db_version            = "13.3"
 db_name               = "my-database"
 apply_immediately     = true
-db_instance_class     = "db.t4g.medium"
+db_instance_class     = {
+  dev = "db.t4g.medium"
+  test = "db.t3g.medium"
+}
 db_instance_count     = 1
 enable_http_endpoint  = true
 

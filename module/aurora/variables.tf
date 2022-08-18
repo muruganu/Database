@@ -1,5 +1,3 @@
-variable "create_cluster" {}
-variable "cluster_count" {}
 variable "cluster_name" {}
 variable "db_subnet" {
   type = list
