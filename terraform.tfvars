@@ -17,9 +17,9 @@ db_version            = "13.3"
 db_name               = "my-database"
 apply_immediately     = true
 db_instance_class     = {
-  dev = "db.t4g.medium"
-  test = "db.t3g.medium"
-  prod = "db.t8g.medium"
+  dev = "db.t3g.medium"
+  test = "db.t4g.medium"
+  prod = "db.t5g.medium"
 }
 db_instance_count     = 1
 enable_http_endpoint  = true
